@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="LoginApp.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:LoginApp"
+    xmlns:pages="clr-namespace:LoginApp.Pages"
+    Title="LoginApp"
+    NavigationPage.HasNavigationBar="False">
+
+    <Shell.Resources>
+        <ResourceDictionary>
+            <Style TargetType="FlyoutItem">
+                <Setter Property="Shell.BackgroundColor" Value="#272727" />
+                <Setter Property="Shell.ForegroundColor" Value="White" />
+                <Setter Property="Shell.TitleColor" Value="Black" />
+                <Setter Property="Shell.DisabledColor" Value="DarkRed" />
+                <Setter Property="Shell.UnselectedColor" Value="DarkRed" />
+
+            </Style>
+        </ResourceDictionary>
+    </Shell.Resources>
+    
+    <Shell.FlyoutHeaderTemplate>
+        <DataTemplate>
+            <Grid BackgroundColor="#D61F40">
+                <Label Text="Musicly" 
+                       TextColor="White"
+                       FontAttributes="Bold" 
+                       FontSize="Large" 
+                       HorizontalOptions="Center" 
+                       VerticalOptions="Center" />
+            </Grid>
+        </DataTemplate>
+    </Shell.FlyoutHeaderTemplate>
+
+    <FlyoutItem Title="Home" Icon="home.svg">
+        <ShellContent Route="home" ContentTemplate="{DataTemplate pages:HomePage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Procurar" Icon="search.svg">
+        <ShellContent Route="settings" ContentTemplate="{DataTemplate pages:PesquisaPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Conta" Icon="conta.svg">
+        <ShellContent Route="about" ContentTemplate="{DataTemplate pages:ContaPage}" />
+    </FlyoutItem>
+
+    <Shell.FlyoutBackground>
+        <LinearGradientBrush StartPoint="0,0"
+                             EndPoint="1,1">
+            <GradientStop Color="#D61F40"
+                          Offset="0.5"/>
+            <GradientStop Color="#272727"
+                          Offset="1.0"/>
+        </LinearGradientBrush>
+    </Shell.FlyoutBackground>
+
+</Shell>

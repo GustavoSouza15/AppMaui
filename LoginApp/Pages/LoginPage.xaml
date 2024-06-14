@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LoginApp.Pages.LoginPage"
+             NavigationPage.HasNavigationBar="False"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             BackgroundColor="#272727">
+
+    <ContentPage.Behaviors>
+        <toolkit:StatusBarBehavior StatusBarColor="#272727"/>
+    </ContentPage.Behaviors>
+    
+    <ContentPage.Background>
+        <LinearGradientBrush StartPoint="1,0">
+            <GradientStop Color="#272727" Offset="0.1" />
+            <GradientStop Color="#101010" Offset="1.0" />
+        </LinearGradientBrush>
+    </ContentPage.Background>
+
+    <VerticalStackLayout Margin="15"
+                         Padding="15"
+                         Spacing="5">
+
+        <Label Text="Entre no Musicly"
+               TextColor="White"
+               Margin="0,90,0,0"
+               VerticalOptions="Center"
+               HorizontalOptions="Center"
+               FontSize="Title"
+               FontAttributes="Bold"/>
+
+        <Label x:Name="lblEmail"
+       TextColor="White"
+       FontSize="Subtitle"/>
+
+        <Frame Padding="10" 
+               BorderColor="Transparent" 
+               CornerRadius="5"
+               BackgroundColor="#464646">
+            <Grid>
+                <Entry x:Name="txtEmail" 
+                       Placeholder="Digite seu Email" 
+                       TextColor="White"
+                       Text="{Binding Email}"
+                       Keyboard="Email"/>
+            </Grid>
+        </Frame>
+
+        <Label x:Name="lblSenha"
+               FontSize="Subtitle"
+               TextColor="White"/>
+
+        <Frame Padding="10" 
+               BorderColor="Transparent" 
+               CornerRadius="5"
+               BackgroundColor="#464646">
+            <Grid>
+                <Entry x:Name="txtSenha" 
+                       Placeholder="Digite sua Senha" 
+                       Text="{Binding Senha}"
+                       TextColor="White"
+                       IsPassword="True"/>
+            </Grid>
+        </Frame>
+
+        <Button Text="Entrar" 
+                TextColor="#272727" 
+                FontAttributes="Bold"
+                WidthRequest="250"
+                x:Name="btnEntrar" 
+                Clicked="btnEntrar_Clicked"
+                BackgroundColor="#D61F40"
+                Margin="0,80,5,5"
+        />
+
+        <Button Text="Inscreva-Se" 
+                TextColor="White"
+                FontAttributes="Bold"
+                WidthRequest="250"
+                x:Name="btnRegistrar" 
+                Clicked="btnRegistrar_Clicked"
+                BackgroundColor="Transparent"/>
+
+    </VerticalStackLayout>
+</ContentPage>
+    

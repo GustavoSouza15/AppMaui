@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LoginApp.Pages.MusicPlayerPage"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="#272727" Offset="0.5" />
+            <GradientStop Color="#101010" Offset="1.0" />
+        </LinearGradientBrush>
+    </ContentPage.Background>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <StackLayout Grid.Row="0" 
+                     VerticalOptions="CenterAndExpand" 
+                     HorizontalOptions="CenterAndExpand" 
+                     Padding="10">
+            <Label x:Name="musicTitle" 
+                   FontSize="24" 
+                   TextColor="White" 
+                   FontAttributes="Bold" 
+                   HorizontalOptions="Center"/>
+            <Label x:Name="musicArtist" 
+                   FontSize="18" 
+                   TextColor="White" 
+                   HorizontalOptions="Center"/>
+        </StackLayout>
+
+        <StackLayout Grid.Row="1" 
+                     Orientation="Horizontal"
+                     HorizontalOptions="Center" 
+                     VerticalOptions="End" 
+                     Padding="10">
+            <ImageButton x:Name="playPauseButton" 
+                         Source="play.svg" 
+                         HeightRequest="60" 
+                         WidthRequest="60" 
+                         Clicked="OnPlayPauseButtonClicked"/>
+        </StackLayout>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LoginApp.Pages.HomePage"
+             NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.Background>
+        <LinearGradientBrush StartPoint="0,0" 
+                             EndPoint="1,1">
+            <GradientStop Color="#272727" 
+                          Offset="0.5" />
+            <GradientStop Color="#101010" 
+                           Offset="1.0" />
+        </LinearGradientBrush>
+    </ContentPage.Background>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Label Text="Musicas"
+               FontAttributes="Bold"
+               FontSize="Title"
+               TextColor="White"
+               HorizontalOptions="Fill"
+               Margin="10"/>
+        <CarouselView x:Name="carouselView" ItemsSource="{Binding Cards}" Grid.Row="0">
+            <CarouselView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Margin="10"
+                           BorderColor="Transparent"
+                           Padding="0"
+                           CornerRadius="65"
+                           HeightRequest="190"
+                           WidthRequest="190"
+                           IsClippedToBounds="True"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center">
+
+                        <Image Source="{Binding ImageSource}">
+                            <Image.GestureRecognizers>
+
+                                <TapGestureRecognizer NumberOfTapsRequired="1"
+                                                      Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.NavegarCommand}"
+                                                      CommandParameter="{Binding .}" />
+                            </Image.GestureRecognizers>
+                        </Image>
+
+                    </Frame>
+                    
+                </DataTemplate>
+            </CarouselView.ItemTemplate>
+        </CarouselView>
+
+        <StackLayout Orientation="Horizontal" 
+                     HorizontalOptions="Center" 
+                     VerticalOptions="End" 
+                     Padding="10" 
+                     Grid.Row="1">
+            
+            <ImageButton Source="previous.svg" 
+                         HeightRequest="50"
+                         WidthRequest="50"
+                         Margin="5"
+                         Command="{Binding PreviousCommand}" />
+            
+            <ImageButton Source="{Binding PlayPause}" 
+                         HeightRequest="60"
+                         WidthRequest="60"
+                         Margin="5"
+                         Command="{Binding PlayPauseCommand}" />
+            
+            <ImageButton Source="next.svg" 
+                         HeightRequest="50"
+                         WidthRequest="50"
+                         Margin="5"
+                         Command="{Binding NextCommand}" />
+        </StackLayout>
+    </Grid>
+
+</ContentPage>
